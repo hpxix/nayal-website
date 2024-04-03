@@ -1,9 +1,8 @@
-import Image from "next/image";
-import Header from "./header/Header";
-import { Footer } from "./footer/Footer";
-import Carousel from "./carrousel/Carousel";
+import React from "react";
+import Header from "../header/Header";
+import { Footer } from "../footer/Footer";
 
-export default function Home() {
+function About() {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
@@ -18,3 +17,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default About;

@@ -12,7 +12,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: white;
   }
 }
 
@@ -31,3 +31,85 @@ body {
     text-wrap: balance;
   }
 }
+.btn-11 {
+  background: linear-gradient(0deg, rgba(94, 14, 232, 0.713) 0%, rgb(246, 216, 16) 100%);
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-11:before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #fff;
+  animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+.btn-11:hover {
+  opacity: .7;
+}
+
+.btn-11:active {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+@keyframes shiny-btn1 {
+  0% { transform: scale(0) rotate(45deg); opacity: 0; }
+  80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+  81% { transform: scale(4) rotate(45deg); opacity: 1; }
+  100% { transform: scale(50) rotate(45deg); opacity: 0; }
+}
+.custom-btn.btn-16 {
+  border: none;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  z-index: 4;
+}
+
+.custom-btn.btn-16:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: 1;
+  background: linear-gradient(315deg, #ffffff00 0%, #d5af0773 74%);
+  box-shadow:
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px rgba(255, 255, 255, 0.067);
+  transition: all 0.3s ease;
+}
+
+.custom-btn.btn-16:hover {
+  color: #ffffff;
+}
+
+.custom-btn.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+
+.custom-btn.btn-16:active {
+  top: 2px;
+}
+/* global.css */
+
