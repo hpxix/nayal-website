@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import NayalLogo from "../images/nayal.png";
 import Image from "next/image";
-import Button from "../Buttons/Button";
+import Button from "../app/ui/Button";
+import NayalLogo from "@/app/images/nayal.png";
 
 export const Footer = ({ className }: any) => {
   return (

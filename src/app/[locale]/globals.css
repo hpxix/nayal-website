@@ -111,5 +111,15 @@ body {
 .custom-btn.btn-16:active {
   top: 2px;
 }
+
+.logo-container {
+  position: absolute;
+  top: -2px; /* Adjust as needed */
+}
+
+.logo {
+  cursor: pointer;
+}
+
 /* global.css */
 

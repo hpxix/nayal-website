@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Asians from "../images/asian-two-business-man.png";
-import AsiansOne from "../images/asian-two-business-man.png";
-import AsiansTwo from "../images/images2.jpg";
+import AsiansOne from "@/app/images/asian-two-business-man.png";
+import Asians from "@/app/images/asian-two-business-man.png";
+import AsiansTwo from "@/app/images/images2.jpg";
 
 const images = [Asians, AsiansOne, AsiansTwo];
 
