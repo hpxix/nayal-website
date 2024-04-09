@@ -2,6 +2,8 @@
   "Head" : {
     "home": "رئيسي",
     "about": "من نحن؟",
-    "services": "الخدمات"
+    "services": "الخدمات",
+    "blogs": "المدونه",
+    "contactUs": "تواصل معنا"
     }
 }

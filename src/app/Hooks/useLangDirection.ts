@@ -5,7 +5,7 @@ const useLangDirection = () => {
 
   return {
     rtl: router.locale === "ar",
-    ltr: router.locale !== "ar",
+    ltr: router.locale !== "en",
   };
 };
 

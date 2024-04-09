@@ -7,13 +7,16 @@ import { useRouter } from "next/navigation";
 import Carousel from "@/components/Carousel";
 import Button from "@/app/ui/Button";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import LocalSwicther from "@/components/local-switcher";
+import BurgerMenu from "@/app/ui/BurgerMenu";
+import useViewPort from "@/app/Hooks/useViewPort";
 
 function Header() {
   const router = useRouter();
-  // const t = useTranslations("Head");
+  const t = useTranslations("Head");
   const [isPinging, setIsPinging] = useState(false);
-  // console.log("object:", { home: t("Home") } as { home: string });
+  const { breakpoint } = useViewPort(); // Destructure breakpoint from the hook
+  console.log("breakpoint:", breakpoint);
   const handlePing = () => {
     setIsPinging(true);
     setTimeout(() => {
@@ -23,51 +26,46 @@ function Header() {
   };
   return (
     <>
-      <div className="w-full h-20 bg-black flex justify-center items-center">
-        <div className="flex">
-          <Link
-            className="custom-btn btn-16 px-3 py-3 rounded text-white right-[600px]"
-            href={"/"}
-          >
-            {/* {t("home")} */}
-            Home
-          </Link>
-          <Link
-            className="custom-btn btn-16 px-3 py-3 rounded text-white right-[500px]"
-            // onClick={() => router.push("/about")}
-            href={"/about"}
-          >
-            {/* {t("About")} */}
-            About
-          </Link>
-          <Link
-            className="custom-btn btn-16 px-3 py-3 rounded text-white right-[400px]"
-            href={"/services"}
-          >
-            Services
-          </Link>
-        </div>
-        <div className="flex">
-          <Button
-            className="px-3 py-3 rounded text-white left-[700px]"
-            href={"/contact-us"}
-          >
-            Contact Us
-          </Button>
-          <button className="custom-btn btn-16 px-2 rounded text-white left-[450px]">
-            Blogs
-          </button>
-          <button className="custom-btn btn-16 px-2 rounded text-white left-[200px]">
-            About us
-          </button>
+      <div className="bg-black p-6 flex justify-between items-center">
+        {breakpoint === "sm" && <BurgerMenu />}{" "}
+        {/* Render BurgerMenu for small screens */}
+        {/* Right-aligned buttons */}
+        {breakpoint !== "sm" && ( // Conditionally render right-aligned buttons if not on small screens
+          <div className="flex items-center space-x-4 md:space-x-24 lg:space-x-32 xl:space-x-40 ml-28">
+            <button className="text-white px-2 custom-btn btn-16 rounded">
+              Home
+            </button>
+            <button className="text-white px-2 custom-btn btn-16 rounded">
+              About
+            </button>
+            <button className="text-white px-2 custom-btn btn-16 rounded">
+              Services
+            </button>
+          </div>
+        )}
+        {/* Spacer */}
+        <div className="flex-grow"></div>
+        {/* Left-aligned buttons and Contact button */}
+        {breakpoint !== "sm" && ( // Conditionally render left-aligned buttons and Contact button if not on small screens
+          <div className="flex items-center space-x-12 md:space-x-24 lg:space-x-32 xl:space-x-40">
+            <button className="text-white px-2 custom-btn btn-16 rounded">
+              Button 1
+            </button>
+            <button className="text-white px-2 custom-btn btn-16 rounded">
+              Button 2
+            </button>
+            <Button className="text-white px-2 rounded">Contact us</Button>
+          </div>
+        )}
+        {/* LocalSwitcher - positioned to the far right */}
+        <div className="flex items-center ml-5">
+          <LocalSwicther className="text-white space-x-20" />
         </div>
       </div>
       <div className="relative z-10">
-        {" "}
-        {/* This container is relative and above Carousel */}
         <div
           className="flex flex-col items-center absolute w-full"
-          style={{ top: "-48px" }} // Adjust if necessary
+          style={{ top: "-48px" }}
         >
           <Image
             style={{ position: "absolute", top: "-23px" }} // Adjust the top value as needed

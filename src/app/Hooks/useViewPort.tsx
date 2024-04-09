@@ -28,9 +28,9 @@ const useViewport = (): UseViewPortResult => {
   }, []);
 
   const breakpoint = useMemo(() => {
-    if (width <= 600) {
+    if (width <= 1750) {
       return "sm";
-    } else if (width <= 900) {
+    } else if (width <= 1800) {
       return "md";
     } else {
       return "md";
