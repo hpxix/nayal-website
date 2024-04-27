@@ -1,34 +1,40 @@
-"use client";
-
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, Children, useTransition } from "react";
+import { useTransition } from "react";
+import IntantionalizationSVG from "@/app/images/intantionalization";
 
-export default function LocalSwitcher({children}: any) {
+export default function LocalSwitcher({ children }: any) {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const localActive = useLocale();
 
-  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const nextLocale = e.target.value;
+  const toggleLanguage = (nextLocale: string) => {
     startTransition(() => {
       router.replace(`/${nextLocale}`);
     });
   };
+
   return (
     <div className={children}>
-    <label className="border-2 rounded">
-      <p className="sr-only text-black">change language</p>
-      <select
-        defaultValue={localActive}
-        className="bg-transparent py-2"
-        onChange={onSelectChange}
-        disabled={isPending}
-      >
-        <option value="en">English</option>
-        <option value="ar">Arabic</option>
-      </select>
-    </label>
+      <p className="sr-only text-black">Change language</p>
+      <div className="flex mx-6">
+        <IntantionalizationSVG />
+        <button
+          onClick={() => toggleLanguage("en")}
+          disabled={isPending}
+          className={`mx-3 ${localActive === "ar" ? "text-white" : "text-xl"}`}
+        >
+          En
+        </button>
+        <div className="bg-white block" style={{ width: "2px" }}></div>
+        <button
+          onClick={() => toggleLanguage("ar")}
+          disabled={isPending}
+          className={`mx-3 ${localActive === "ar" ? "text-xl" : "text-sm"}`}
+        >
+          Ar
+        </button>
+      </div>
     </div>
   );
 }

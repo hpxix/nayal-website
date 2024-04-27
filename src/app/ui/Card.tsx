@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import useLangDirection from "@/app/Hooks/useLangDirection";
+import useLangDirection from "@/app/Hooks/use-language-direction";
 import useViewport from "@/app/Hooks/useViewPort";
 import { useTranslations } from "next-intl";
 

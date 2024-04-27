@@ -22,7 +22,7 @@ export const Footer = ({ className }: any) => {
               free virtual or in-home consultation with our team!
             </p>
           </div>
-          <Button className="px-40 py-3 rounded">Contact Us</Button>
+          <Button className="px-20 py-3 rounded">Contact Us</Button>
         </div>
         <div>
           <p className="font-bold">T:</p>

@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { NextIntlClientProvider, useMessages } from "next-intl";
-import LocalSwicther from "@/components/local-switcher";
+import Body from "@/components/body";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,10 +27,14 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={inter.className}>
+      <body
+        className={inter.className}
+        style={{ backgroundColor: 'black' }}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="flex flex-col min-h-screen  mx-auto">
             <Header />
+            <Body />
             <div className="flex-grow mt-20">{children}</div>
             <Footer />
           </div>
