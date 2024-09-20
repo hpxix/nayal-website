@@ -145,9 +145,9 @@ function Header() {
               onClick={handlePing}
             />
             {/* SubLogo with a higher z-index */}
-            {/* <div className="z-20 absolute md:top-12 top-10">
+            <div className="z-20 absolute md:top-12 top-10">
               <SubLogo />
-            </div> */}
+            </div>
           </div>
         )}
         {/* Carousel with a lower z-index */}
