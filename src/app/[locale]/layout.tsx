@@ -32,7 +32,7 @@ export default function RootLayout({
         style={{ backgroundColor: 'black' }}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <div className="flex flex-col min-h-screen  mx-auto">
+        <div className="flex flex-col min-h-screen  mx-auto">
             <Header />
             <Body />
             <div className="flex-grow mt-20">{children}</div>
